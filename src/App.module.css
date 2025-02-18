@@ -1,0 +1,51 @@
+.header{
+    background: var(--gray-700);
+    height: 12.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper{
+
+}
+
+.header img{
+    width: 8rem;
+    height: 3rem;
+}
+
+.textBox{
+    display: flex;
+    justify-content: space-around;
+}
+
+.textBox textarea {
+    background: var(--gray-400);
+
+    border: 0;
+    border-radius: 8px;
+    margin-top: -1.5rem;
+    padding: 1rem;
+
+    width: 46rem;
+    height: 3.375rem;
+
+    resize: none;
+}
+
+.createButton{
+    /* background: var(--blue-700); */
+}
+
+.btn{
+    background: var(--blue-700);
+    color: var(--gray-100);
+
+    border: 0;
+    border-radius: 8px;
+
+    width: 5.625rem;
+    height: 3.375rem;
+}

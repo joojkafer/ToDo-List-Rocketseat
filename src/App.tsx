@@ -1,6 +1,7 @@
 import styles from './App.module.css'
 import Logo from './assets/Logo.svg'
 //import { Rocket } from "@phosphor-icons/react";
+import { Task } from './components/Task.tsx'
 
 export function App() {
     return (
@@ -25,6 +26,8 @@ export function App() {
             </button>
           </div>
         </div>
+
+        <Task />
 
       </div>
     )

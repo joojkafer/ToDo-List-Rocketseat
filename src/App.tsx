@@ -27,7 +27,18 @@ export function App() {
           </div>
         </div>
 
-        <Task />
+        <div className={styles.mainTaskList}>
+          <div className={styles.taskCounter}>
+            <span className={styles.createdTasks}> Tarefas Criadas: X</span>
+            <span className={styles.completedTasks}> Concluídas: X</span>
+          </div>
+
+          <div className={styles.taskList}>
+            <Task />
+            <Task />
+            <Task />
+          </div>
+        </div>
 
       </div>
     )

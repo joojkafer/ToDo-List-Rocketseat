@@ -7,7 +7,7 @@ export function Task() {
             <input type="checkbox" className={styles.checkbox} />
             <span className={styles.taskText}>
                 Integer urna interdum massa libero auctor neque turpis turpis semper. 
-                Duis vel sed fames integer.
+                Duis vel sed fames integer. adasdadasdasdasd
             </span>
 
             <button className={styles.trashButton}>

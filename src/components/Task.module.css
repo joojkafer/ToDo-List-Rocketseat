@@ -1,31 +1,73 @@
-.taskComp{
+.taskComp {
+    display: flex;
+    align-items: center;
     background: var(--gray-400);
     border-radius: 8px;
-    height: 4.5rem;
     padding: 1rem;
+
+    gap: 1rem; /* Espaçamento entre os elementos */
+    width: 100%;
+    max-width: 46rem; /* Define um limite para a largura */
 }
 
-.taskComp + .taskComp{
+/* Mantém o espaçamento entre as tasks */
+.taskComp + .taskComp {
     margin-top: 0.6rem;
 }
 
+/* Checkbox */
 .checkbox {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--blue-600);
+    background: var(--gray-400);;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
-.taskText{
+/* Quando marcado, muda a cor do fundo */
+.checkbox:checked {
+    background: var(--purple-700);
+    border: 2px solid var(--purple-700);
+    position: relative;
+}
+
+/* Adiciona um check branco dentro da bolinha */
+.checkbox:checked::after {
+    content: '✔';
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Texto da tarefa */
+.taskText {
+    flex: 1; /* Faz o texto ocupar o espaço disponível */
+    font-size: 0.9rem;
     color: var(--gray-100);
+    line-height: 1.4;
+    word-break: break-word; /* Garante que o texto quebre corretamente */
+    overflow-wrap: break-word;
+    transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 }
 
+.checkbox:checked + .taskText {
+    color: var(--gray-300); /* Darker text */
+    text-decoration: line-through; /* Line-through effect */
+}
+
+/* Botão de lixeira */
 .trashButton {
     background: none;
     border: none;
     cursor: pointer;
     color: var(--gray-300);
-    transition: background-color 0.2s;
+    transition: color 0.2s;
 }
 
 .trashButton:hover {

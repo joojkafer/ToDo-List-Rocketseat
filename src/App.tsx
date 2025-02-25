@@ -5,27 +5,37 @@ import { useState } from "react";
 
 import { Task } from './components/Task.tsx'
 
+interface TaskType {
+  id: string;
+  text: string;
+  isCompleted: boolean;
+}
+
 export function App() {
-  const [tasks, setTasks] = useState<{ text: string; isCompleted: boolean }[]>([]);
+  const [tasks, setTasks] = useState<TaskType[]>([]);
   const [newTask, setNewTask] = useState("");
 
   //Adicionar nova task
   function handleAddTask() {
     if (newTask.trim() === "") return;
-    
-    setTasks([...tasks, { text: newTask, isCompleted: false }]);
+    const newTaskObject: TaskType = {
+        id: crypto.randomUUID(), // Generates a unique ID
+        text: newTask,
+        isCompleted: false
+    };
+    setTasks([...tasks, newTaskObject]);
     setNewTask("");
-  }
+}
 
   // Function to delete a task
-  function handleDeleteTask(taskToDelete: string) {
-    setTasks(tasks.filter((task) => task.text !== taskToDelete));
-  }
+  function handleDeleteTask(taskId: string) {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+}
 
   // Function to toggle completion of a task
-  function handleToggleComplete(taskText: string) {
+  function handleToggleComplete(taskId: string) {
     setTasks(tasks.map(task => 
-        task.text === taskText ? { ...task, isCompleted: !task.isCompleted } : task
+        task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task
     ));
   }
 
@@ -66,13 +76,14 @@ export function App() {
           </div>
 
           <div className={styles.taskList}>
-            {tasks.map((task, index) => (
+            {tasks.map((task) => (
               <Task 
-                key={index} 
-                text={task.text}
-                isCompleted={task.isCompleted}
-                onDelete={() => handleDeleteTask(task.text)}
-                onToggleComplete={() => handleToggleComplete(task.text)}
+                key={task.id} 
+                id={task.id}
+                text={task.text} 
+                isCompleted={task.isCompleted} 
+                onDelete={handleDeleteTask} 
+                onToggleComplete={handleToggleComplete}
               />
             ))}
           </div>

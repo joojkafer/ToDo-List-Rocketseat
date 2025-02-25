@@ -7,11 +7,14 @@
     align-items: center;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    align-items: center; /* Ensure vertical alignment */
+    gap: 0.5rem; /* Reduce gap for a tighter layout */
+    margin-top: -1.5rem;
 }
+
 
 .header img{
     width: 8rem;
@@ -23,34 +26,41 @@
 }
 
 .textBox textarea {
-    background: var(--gray-400);
-
+    background: var(--gray-500);
     border: 0;
     border-radius: 8px;
-    margin-top: -1.5rem;
     padding: 1rem;
     color: var(--gray-300);
 
     width: 39.875rem;
     height: 3.375rem;
-
+    
     resize: none;
+    font-size: 1rem; /* Ensure text size consistency */
 }
 
-.createButton{
-    margin-top: -1.5rem;
+.createButton {
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
 }
 
-.btn{
+.btn {
     background: var(--blue-700);
     color: var(--gray-100);
-
+    
     border: 0;
     border-radius: 8px;
     cursor: pointer;
-
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between text and icon */
+    
     width: 5.625rem;
     height: 3.375rem;
+    
+    font-size: 1rem; /* Ensures text is not too small */
 }
 
 .mainTaskList{

@@ -1,9 +1,11 @@
 import styles from './App.module.css'
 import Logo from './assets/Logo.svg'
+import { PlusCircle } from '@phosphor-icons/react';
 
 import { useState } from "react";
 
 import { Task } from './components/Task.tsx'
+import { EmptyTask } from './components/EmptyTask.tsx'
 
 interface TaskType {
   id: string;
@@ -64,6 +66,7 @@ export function App() {
           <div className={styles.createButton}>
             <button className={styles.btn} onClick={handleAddTask}>
               Criar
+              <PlusCircle size={16} color="#f2f2f2" weight="bold" />
             </button>
           </div>
         </div>
@@ -76,19 +79,22 @@ export function App() {
           </div>
 
           <div className={styles.taskList}>
-            {tasks.map((task) => (
-              <Task 
-                key={task.id} 
-                id={task.id}
-                text={task.text} 
-                isCompleted={task.isCompleted} 
-                onDelete={handleDeleteTask} 
-                onToggleComplete={handleToggleComplete}
-              />
-            ))}
+            {tasks.length === 0 ? (
+              <EmptyTask />
+            ) : (
+              tasks.map((task) => (
+                <Task 
+                  key={task.id} 
+                  id={task.id}
+                  text={task.text} 
+                  isCompleted={task.isCompleted} 
+                  onDelete={handleDeleteTask} 
+                  onToggleComplete={handleToggleComplete}
+                />
+              ))
+            )}
           </div>
         </div>
-
       </div>
     )
 }
